@@ -21,20 +21,22 @@ export ARCH="arm64"
 export USE_CCACHE=1
 
 # Finally build it
+mkdir -p out
 make clean && make mrproper
 make kenzo_defconfig
 make menuconfig
 make -j5
 
+
 # Create the flashable zip
-cp arch/arm64/boot/Image.gz-dtb $Anykernel_DIR
+cp out/arch/arm64/boot/Image.gz-dtb $Anykernel_DIR
 cd $Anykernel_DIR
 zip -r9 $FINAL_ZIP.zip * -x .git README.md *placeholder
 
 # Cleanup again
 cd ../
 rm -rf $Anykernel_DIR/Image.gz-dtb
-rm -rf arch/arm64/boot/Image
-rm -rf arch/arm64/boot/dts/qcom/kenzo-msm8956-mtp.dtb
-rm -rf arch/arm64/boot/Image.gz
-rm -rf arch/arm64/boot/Image.gz-dtb
+rm -rf out/arch/arm64/boot/Image
+rm -rf out/arch/arm64/boot/dts/qcom/kenzo-msm8956-mtp.dtb
+rm -rf out/arch/arm64/boot/Image.gz
+rm -rf out/arch/arm64/boot/Image.gz-dtb
