@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Acetaminofen-initial_build
+kernel.string=Acetaminofen
 do.devicecheck=1
 do.modules=0
 do.cleanup=1

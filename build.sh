@@ -1,7 +1,7 @@
 KERNEL_DIR=$PWD
 Anykernel_DIR=$KERNEL_DIR/AnyKernel2/
 DATE=$(date +"%d%m%Y")
-KERNEL_NAME="Acetaminofen-initial_build"
+KERNEL_NAME="Acetaminofen"
 DEVICE="-kenzo-"
 FINAL_ZIP="$KERNEL_NAME""$DEVICE""$DATE"
 
@@ -21,6 +21,7 @@ export ARCH="arm64"
 export USE_CCACHE=1
 
 # Finally build it
+rm -rf out/
 mkdir -p out
 make clean && make mrproper
 make kenzo_defconfig
