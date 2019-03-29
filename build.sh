@@ -17,7 +17,7 @@ rm -rf arch/arm64/boot/Image.gz-dtb
 export KBUILD_BUILD_USER="Dhaval"
 export KBUILD_BUILD_HOST="ryzen"
 export CROSS_COMPILE=/home/dhacommas/Desktop/cm14.1/n/toolchain/bin/aarch64-linux-android-
-export ARCH="arm64"
+export ARCH=arm64 && export SUBARCH=arm64
 export USE_CCACHE=1
 
 # Finally build it
@@ -26,7 +26,7 @@ mkdir -p out
 make clean && make mrproper
 make kenzo_defconfig
 make menuconfig
-make -j5
+make -j5 2>&1 | tee log.log
 
 
 # Create the flashable zip
