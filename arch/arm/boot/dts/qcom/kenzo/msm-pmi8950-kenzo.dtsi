@@ -635,9 +635,9 @@
 			interrupt-names = "sc-irq", "play-irq";
 			qcom,play-mode = "direct";
 			qcom,wave-play-rate-us = <5263>;
-			qcom,actuator-type = "erm";
-			qcom,wave-shape = "square";
-			qcom,vmax-mv = <2000>;
+			qcom,actuator-type = "lra";
+			qcom,wave-shape = "sine";
+			qcom,vmax-mv = <1300>;
 			qcom,ilim-ma = <800>;
 			qcom,sc-deb-cycles = <8>;
 			qcom,int-pwm-freq-khz = <505>;
@@ -648,6 +648,10 @@
 			qcom,wave-samples = [3e 3e 3e 3e 3e 3e 3e 3e];
 			qcom,wave-rep-cnt = <1>;
 			qcom,wave-samp-rep-cnt = <1>;
+			qcom,lra-high-z = "opt1";
+			qcom,lra-auto-res-mode = "qwd";
+			qcom,lra-res-cal-period = <4>;
+			qcom,correct-lra-drive-freq;
 		};
 	};
 };
