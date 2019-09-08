@@ -1,5 +1,5 @@
 KERNEL_DIR=$PWD
-Anykernel_DIR=$KERNEL_DIR/AnyKernel2/
+Anykernel_DIR=$KERNEL_DIR/AnyKernel3/
 DATE=$(date +"%d%m%Y")
 KERNEL_NAME="Acetaminofen"
 DEVICE="-kenzo-"
@@ -15,7 +15,7 @@ rm -rf arch/arm64/boot/Image.gz-dtb
 
 # Export few variables
 export KBUILD_BUILD_USER="Dhaval"
-export KBUILD_BUILD_HOST="ryzen"
+export KBUILD_BUILD_HOST="BleedingEdge"
 export CROSS_COMPILE=/home/dhacommas/Desktop/cm14.1/n/toolchain/bin/aarch64-linux-android-
 export ARCH=arm64 && export SUBARCH=arm64
 export USE_CCACHE=1
@@ -26,13 +26,13 @@ mkdir -p out
 make clean && make mrproper
 make kenzo_defconfig
 make menuconfig
-make -j5 2>&1 | tee log.log
+make -j9 2>&1 | tee BuildLog.log
 
 
 # Create the flashable zip
 cp out/arch/arm64/boot/Image.gz-dtb $Anykernel_DIR
 cd $Anykernel_DIR
-zip -r9 $FINAL_ZIP.zip * -x .git README.md *placeholder
+zip -r9 $FINAL_ZIP.zip * -x modules patch ramdisk LICENSE .git README.md *placeholder
 
 # Cleanup again
 cd ../
