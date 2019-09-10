@@ -1459,6 +1459,7 @@ CONFIG_SLHC=y
 # CONFIG_USB_HSO is not set
 # CONFIG_USB_IPHETH is not set
 CONFIG_WLAN=y
+# CONFIG_ATH_COMMON is not set
 # CONFIG_ATMEL is not set
 # CONFIG_PRISM54 is not set
 # CONFIG_USB_ZD1201 is not set
